@@ -13,7 +13,7 @@ export const createPost_ = async (req, res) => {
 
     let images = [];
     if (req.files && req.files.length > 0) {
-      images = req.files.map(file => `/uploads/${file.filename}`);
+      images = req.files.map(file => file.path); // Cloudinary secure URL
     }
 
     const post = await createPost({ userId, content, images });
@@ -70,7 +70,7 @@ export const updatePost_ = async (req, res) => {
 
     let newImages = [];
     if (req.files && req.files.length > 0) {
-      newImages = req.files.map(file => `/uploads/${file.filename}`);
+      newImages = req.files.map(file => file.path); // Cloudinary secure URL
     }
 
     const updatedPost = await updatePost(postId, { content, newImages });

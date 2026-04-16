@@ -15,7 +15,7 @@ export const createReel_ = async (req, res) => {
       return res.status(400).json({ message: 'Video file is required' });
     }
 
-    const video = `/uploads/${req.file.filename}`;
+    const video = req.file.path; // Cloudinary secure URL
     const reel = await createReel({ userId, video, caption: caption || '' });
     res.status(201).json(reel);
   } catch (error) {
@@ -95,7 +95,7 @@ export const updateReel_ = async (req, res) => {
       return res.status(403).json({ message: 'Not authorized to update this reel' });
     }
 
-    const video = req.file ? `/uploads/${req.file.filename}` : null;
+    const video = req.file ? req.file.path : null; // Cloudinary secure URL
     const updated = await updateReel(reelId, { caption, video });
     res.status(200).json(updated);
   } catch (error) {

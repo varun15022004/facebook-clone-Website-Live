@@ -97,7 +97,7 @@ export const uploadProfilePicture = async (req, res) => {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
-    const profilePicture = `/uploads/${req.file.filename}`;
+    const profilePicture = req.file.path; // Cloudinary secure URL
     const updatedUser = await updateUser(userId, { profilePicture });
 
     res.status(200).json(formatUser(updatedUser));
@@ -115,7 +115,7 @@ export const uploadCoverPhoto = async (req, res) => {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
-    const coverPhoto = `/uploads/${req.file.filename}`;
+    const coverPhoto = req.file.path; // Cloudinary secure URL
     const updatedUser = await updateUser(userId, { coverPhoto });
 
     res.status(200).json(formatUser(updatedUser));

@@ -1,7 +1,5 @@
 import express from 'express';
-import multer from 'multer';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { createUploader } from '../utils/cloudinaryUpload.js';
 import {
   createReel,
   getReels,
@@ -15,21 +13,7 @@ import {
 } from '../controllers/reelController.js';
 
 const router = express.Router();
-
-// Configure multer for file uploads
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, path.join(__dirname, '../../uploads/'));
-  },
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
-const upload = multer({ storage });
+const upload = createUploader('reels', 'video');
 
 // Reel routes
 router.post('/:userId', upload.single('video'), createReel);

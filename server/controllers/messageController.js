@@ -21,7 +21,7 @@ export const sendMessage = async (req, res) => {
     }
 
     const content = (req.body.content || '').toString();
-    const attachments = (req.files || []).map((f) => `/uploads/${f.filename}`);
+    const attachments = (req.files || []).map((f) => f.path); // Cloudinary secure URL
 
     if (!content.trim() && attachments.length === 0) {
       return res.status(400).json({ message: 'Message content or attachment is required' });
