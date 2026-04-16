@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posts/feed/${user?._id}`, {
+      const response = await fetch(`/api/posts/feed/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
 
   const fetchStories = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stories/feed/${user?._id}`, {
+      const response = await fetch(`/api/stories/feed/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
 
   const fetchFriendRequests = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/friends/requests/${user?._id}`, {
+      const response = await fetch(`/api/friends/requests/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }

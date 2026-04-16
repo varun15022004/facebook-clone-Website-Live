@@ -29,7 +29,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postId, reelId, comment
     
     try {
       if (reelId) {
-        await fetch(`http://localhost:5000/api/reels/${reelId}/comment/${user?._id}`, {
+        await fetch(`/api/reels/${reelId}/comment/${user?._id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postId, reelId, comment
           body: JSON.stringify({ content: newComment })
         });
       } else {
-        await fetch(`http://localhost:5000/api/comments/${postId}/${user?._id}`, {
+        await fetch(`/api/comments/${postId}/${user?._id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postId, reelId, comment
     if (!editContent.trim()) return;
     
     try {
-      await fetch(`http://localhost:5000/api/comments/${commentId}/${user?._id}`, {
+      await fetch(`/api/comments/${commentId}/${user?._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postId, reelId, comment
     if (!window.confirm('Are you sure you want to delete this comment?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/comments/${commentId}/${user?._id}`, {
+      await fetch(`/api/comments/${commentId}/${user?._id}`, {
         method: 'DELETE',
         headers: {
           'userId': user?._id || ''
@@ -94,7 +94,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postId, reelId, comment
 
   const handleLikeComment = async (commentId: string) => {
     try {
-      await fetch(`http://localhost:5000/api/comments/${commentId}/like/${user?._id}`, {
+      await fetch(`/api/comments/${commentId}/like/${user?._id}`, {
         method: 'POST',
         headers: {
           'userId': user?._id || ''

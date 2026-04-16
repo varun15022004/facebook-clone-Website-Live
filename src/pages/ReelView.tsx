@@ -23,7 +23,7 @@ const ReelView: React.FC = () => {
 
   const fetchReel = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/reels/${id}`, {
+      const response = await fetch(`/api/reels/${id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -44,7 +44,7 @@ const ReelView: React.FC = () => {
     setIsLiking(true);
     
     try {
-      await fetch(`http://localhost:5000/api/reels/${id}/like/${user?._id}`, {
+      await fetch(`/api/reels/${id}/like/${user?._id}`, {
         method: 'POST',
         headers: {
           'userId': user?._id || ''

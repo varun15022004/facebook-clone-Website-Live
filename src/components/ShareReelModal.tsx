@@ -22,7 +22,7 @@ const ShareReelModal: React.FC<ShareReelModalProps> = ({ reelId, onClose }) => {
 
   const fetchFriends = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/friends/${user?._id}`, {
+      const response = await fetch(`/api/friends/${user?._id}`, {
         headers: { 'userId': user?._id || '' },
         credentials: 'include'
       });
@@ -39,7 +39,7 @@ const ShareReelModal: React.FC<ShareReelModalProps> = ({ reelId, onClose }) => {
     if (sentTo[friendId]) return;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/reels/${reelId}/share/${user?._id}`, {
+      const response = await fetch(`/api/reels/${reelId}/share/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

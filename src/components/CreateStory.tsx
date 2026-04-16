@@ -43,7 +43,7 @@ const CreateStory: React.FC = () => {
         formData.append('image', image);
       }
       
-      const response = await fetch(`http://localhost:5000/api/stories/${user?._id}`, {
+      const response = await fetch(`/api/stories/${user?._id}`, {
         method: 'POST',
         body: formData,
         headers: {

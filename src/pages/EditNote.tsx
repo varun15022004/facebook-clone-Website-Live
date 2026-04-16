@@ -26,7 +26,7 @@ const EditNote: React.FC = () => {
 
   const fetchNote = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/${id}/${user?._id}`, {
+      const response = await fetch(`/api/notes/${id}/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -95,7 +95,7 @@ const EditNote: React.FC = () => {
         formData.append('music', music);
       }
       
-      const response = await fetch(`http://localhost:5000/api/notes/${id}/${user?._id}`, {
+      const response = await fetch(`/api/notes/${id}/${user?._id}`, {
         method: 'PUT',
         body: formData,
         headers: {

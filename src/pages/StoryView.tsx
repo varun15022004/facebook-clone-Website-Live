@@ -45,7 +45,7 @@ const StoryView: React.FC = () => {
 
   const fetchStory = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stories/${id}/${user?._id}`, {
+      const response = await fetch(`/api/stories/${id}/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -62,7 +62,7 @@ const StoryView: React.FC = () => {
 
   const fetchAllStories = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stories/feed/${user?._id}`, {
+      const response = await fetch(`/api/stories/feed/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }

@@ -17,7 +17,7 @@ const Notifications: React.FC = () => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notifications/${user?._id}`, {
+      const response = await fetch(`/api/notifications/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -34,7 +34,7 @@ const Notifications: React.FC = () => {
 
   const handleMarkAsRead = async (notificationId: string) => {
     try {
-      await fetch(`http://localhost:5000/api/notifications/${notificationId}/read`, {
+      await fetch(`/api/notifications/${notificationId}/read`, {
         method: 'PUT',
         headers: {
           'userId': user?._id || ''
@@ -54,7 +54,7 @@ const Notifications: React.FC = () => {
 
   const handleMarkAllAsRead = async () => {
     try {
-      await fetch(`http://localhost:5000/api/notifications/read-all/${user?._id}`, {
+      await fetch(`/api/notifications/read-all/${user?._id}`, {
         method: 'PUT',
         headers: {
           'userId': user?._id || ''

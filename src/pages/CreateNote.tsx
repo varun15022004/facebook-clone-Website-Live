@@ -49,7 +49,7 @@ const CreateNote: React.FC = () => {
         formData.append('music', music);
       }
       
-      const response = await fetch(`http://localhost:5000/api/notes/${user?._id}`, {
+      const response = await fetch(`/api/notes/${user?._id}`, {
         method: 'POST',
         body: formData,
         headers: {

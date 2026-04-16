@@ -21,7 +21,7 @@ const Notes: React.FC = () => {
 
   const fetchUserNotes = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/user/${user?._id}`, {
+      const response = await fetch(`/api/notes/user/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -38,7 +38,7 @@ const Notes: React.FC = () => {
 
   const fetchPublicNotes = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/notes/public', {
+      const response = await fetch('/api/notes/public', {
         headers: {
           'userId': user?._id || ''
         }
@@ -55,7 +55,7 @@ const Notes: React.FC = () => {
     if (!window.confirm('Are you sure you want to delete this note?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/notes/${noteId}/${user?._id}`, {
+      await fetch(`/api/notes/${noteId}/${user?._id}`, {
         method: 'DELETE',
         headers: {
           'userId': user?._id || ''

@@ -4,7 +4,7 @@ export function resolveMediaUrl(url?: string | null) {
   if (!trimmed) return '';
   if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return trimmed;
   if (trimmed.startsWith('data:') || trimmed.startsWith('blob:')) return trimmed;
-  if (trimmed.startsWith('/')) return `http://localhost:5000${trimmed}`;
+  if (trimmed.startsWith('/')) return `${trimmed}`;
   return trimmed;
 }
 

@@ -43,7 +43,7 @@ const Chat: React.FC<ChatProps> = ({
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/messages/${userId}/${recipientId}`, {
+      const response = await fetch(`/api/messages/${userId}/${recipientId}`, {
         headers: {
           'userId': userId
         }
@@ -59,7 +59,7 @@ const Chat: React.FC<ChatProps> = ({
 
   const markMessagesAsRead = async () => {
     try {
-      await fetch(`http://localhost:5000/api/messages/read/${userId}/${recipientId}`, {
+      await fetch(`/api/messages/read/${userId}/${recipientId}`, {
         method: 'PUT',
         headers: {
           'userId': userId
@@ -125,7 +125,7 @@ const Chat: React.FC<ChatProps> = ({
       formData.append('content', newMessage);
       media.forEach((f) => formData.append('media', f));
 
-      const response = await fetch(`http://localhost:5000/api/messages/${userId}`, {
+      const response = await fetch(`/api/messages/${userId}`, {
         method: 'POST',
         headers: {
           'userId': userId

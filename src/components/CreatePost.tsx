@@ -69,7 +69,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
         formData.append('images', image);
       });
       
-      const response = await fetch(`http://localhost:5000/api/posts/${user?._id}`, {
+      const response = await fetch(`/api/posts/${user?._id}`, {
         method: 'POST',
         body: formData,
         headers: {

@@ -38,7 +38,7 @@ const UserProfile: React.FC = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${id}`, {
+      const response = await fetch(`/api/users/${id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -52,7 +52,7 @@ const UserProfile: React.FC = () => {
         setFriendStatus('friends');
       } else {
         // Check if there's a pending request
-        const requestResponse = await fetch(`http://localhost:5000/api/friends/requests/${user?._id}`, {
+        const requestResponse = await fetch(`/api/friends/requests/${user?._id}`, {
           headers: {
             'userId': user?._id || ''
           }
@@ -70,7 +70,7 @@ const UserProfile: React.FC = () => {
 
   const fetchUserPosts = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posts/user/${id}`, {
+      const response = await fetch(`/api/posts/user/${id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -91,7 +91,7 @@ const UserProfile: React.FC = () => {
     setIsSendingRequest(true);
     
     try {
-      await fetch(`http://localhost:5000/api/friends/request/${user?._id}`, {
+      await fetch(`/api/friends/request/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const UserProfile: React.FC = () => {
 
   const handleAcceptFriendRequest = async () => {
     try {
-      await fetch(`http://localhost:5000/api/friends/accept/${user?._id}`, {
+      await fetch(`/api/friends/accept/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const UserProfile: React.FC = () => {
     if (!window.confirm('Are you sure you want to remove this friend?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/friends/remove/${user?._id}`, {
+      await fetch(`/api/friends/remove/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

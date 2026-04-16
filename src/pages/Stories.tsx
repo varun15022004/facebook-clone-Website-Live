@@ -17,7 +17,7 @@ const Stories: React.FC = () => {
 
   const fetchStories = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stories/feed/${user?._id}`, {
+      const response = await fetch(`/api/stories/feed/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }

@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     // Fetch notification count
     if (user) {
-      fetch(`http://localhost:5000/api/notifications/${user._id}`, {
+      fetch(`/api/notifications/${user._id}`, {
         headers: {
           'userId': user._id
         }
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
     if (!searchQuery.trim()) return;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/users/search?query=${searchQuery}`, {
+      const response = await fetch(`/api/users/search?query=${searchQuery}`, {
         headers: {
           'userId': user?._id || ''
         }

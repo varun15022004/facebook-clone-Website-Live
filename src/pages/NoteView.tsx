@@ -22,7 +22,7 @@ const NoteView: React.FC = () => {
 
   const fetchNote = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/notes/${id}/${user?._id}`, {
+      const response = await fetch(`/api/notes/${id}/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -45,7 +45,7 @@ const NoteView: React.FC = () => {
     if (!window.confirm('Are you sure you want to delete this note?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/notes/${id}/${user?._id}`, {
+      await fetch(`/api/notes/${id}/${user?._id}`, {
         method: 'DELETE',
         headers: {
           'userId': user?._id || ''
@@ -172,7 +172,7 @@ const NoteView: React.FC = () => {
               
               <audio 
                 ref={audioRef}
-                src={`http://localhost:5000${note.music}`}
+                src={`${note.music}`}
                 className="w-full"
                 controls
                 onPlay={() => setIsPlaying(true)}

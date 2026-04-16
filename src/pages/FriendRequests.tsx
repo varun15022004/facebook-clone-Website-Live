@@ -18,7 +18,7 @@ const FriendRequests: React.FC = () => {
 
   const fetchFriendRequests = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/friends/requests/${user?._id}`, {
+      const response = await fetch(`/api/friends/requests/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -35,7 +35,7 @@ const FriendRequests: React.FC = () => {
 
   const handleAcceptRequest = async (senderId: string) => {
     try {
-      await fetch(`http://localhost:5000/api/friends/accept/${user?._id}`, {
+      await fetch(`/api/friends/accept/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const FriendRequests: React.FC = () => {
 
   const handleRejectRequest = async (senderId: string) => {
     try {
-      await fetch(`http://localhost:5000/api/friends/reject/${user?._id}`, {
+      await fetch(`/api/friends/reject/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

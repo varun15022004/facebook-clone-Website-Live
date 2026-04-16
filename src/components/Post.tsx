@@ -29,7 +29,7 @@ const Post: React.FC<PostProps> = ({ post, onPostUpdated }) => {
     setIsLiking(true);
     
     try {
-      await fetch(`http://localhost:5000/api/posts/${post._id}/like/${user?._id}`, {
+      await fetch(`/api/posts/${post._id}/like/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const Post: React.FC<PostProps> = ({ post, onPostUpdated }) => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/posts/${post._id}/${user?._id}`, {
+      await fetch(`/api/posts/${post._id}/${user?._id}`, {
         method: 'DELETE',
         headers: {
           'userId': user?._id || ''
@@ -66,7 +66,7 @@ const Post: React.FC<PostProps> = ({ post, onPostUpdated }) => {
     if (!editContent.trim()) return;
     
     try {
-      await fetch(`http://localhost:5000/api/posts/${post._id}/${user?._id}`, {
+      await fetch(`/api/posts/${post._id}/${user?._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -37,7 +37,7 @@ const Reels: React.FC = () => {
 
   const fetchReels = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/reels', {
+      const response = await fetch('/api/reels', {
         headers: {
           'userId': user?._id || ''
         }
@@ -61,7 +61,7 @@ const Reels: React.FC = () => {
 
   const handleLikeReel = async (reelId: string) => {
     try {
-      await fetch(`http://localhost:5000/api/reels/${reelId}/like/${user?._id}`, {
+      await fetch(`/api/reels/${reelId}/like/${user?._id}`, {
         method: 'POST',
         headers: {
           'userId': user?._id || ''

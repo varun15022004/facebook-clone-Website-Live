@@ -25,7 +25,7 @@ const Profile: React.FC = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user?._id}`, {
+      const response = await fetch(`/api/users/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -49,7 +49,7 @@ const Profile: React.FC = () => {
 
   const fetchUserPosts = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/posts/user/${user?._id}`, {
+      const response = await fetch(`/api/posts/user/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -66,7 +66,7 @@ const Profile: React.FC = () => {
 
   const handleProfileUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user?._id}`, {
+      const response = await fetch(`/api/users/${user?._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const Profile: React.FC = () => {
       formData.append('image', file);
       
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${user?._id}/profile-picture`, {
+        const response = await fetch(`/api/users/${user?._id}/profile-picture`, {
           method: 'POST',
           body: formData,
           headers: {
@@ -127,7 +127,7 @@ const Profile: React.FC = () => {
       formData.append('image', file);
       
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${user?._id}/cover-photo`, {
+        const response = await fetch(`/api/users/${user?._id}/cover-photo`, {
           method: 'POST',
           body: formData,
           headers: {

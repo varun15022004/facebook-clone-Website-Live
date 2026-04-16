@@ -20,7 +20,7 @@ const Friends: React.FC = () => {
 
   const fetchFriends = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/friends/${user?._id}`, {
+      const response = await fetch(`/api/friends/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -37,7 +37,7 @@ const Friends: React.FC = () => {
 
   const fetchFriendRequests = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/friends/requests/${user?._id}`, {
+      const response = await fetch(`/api/friends/requests/${user?._id}`, {
         headers: {
           'userId': user?._id || ''
         }
@@ -54,7 +54,7 @@ const Friends: React.FC = () => {
     if (!window.confirm('Are you sure you want to remove this friend?')) return;
     
     try {
-      await fetch(`http://localhost:5000/api/friends/remove/${user?._id}`, {
+      await fetch(`/api/friends/remove/${user?._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

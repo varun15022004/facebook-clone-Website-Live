@@ -24,7 +24,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
   useEffect(() => {
     if (user) {
       // Connect to socket server
-      const newSocket = io('http://localhost:5000', {
+      const newSocket = io('', {
         withCredentials: true,
       });
 

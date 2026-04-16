@@ -54,7 +54,7 @@ const CreateReel: React.FC = () => {
       formData.append('caption', caption);
       formData.append('video', video);
       
-      const response = await fetch(`http://localhost:5000/api/reels/${user?._id}`, {
+      const response = await fetch(`/api/reels/${user?._id}`, {
         method: 'POST',
         body: formData,
         headers: {
